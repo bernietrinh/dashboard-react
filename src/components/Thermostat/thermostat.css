@@ -1,0 +1,51 @@
+.thermostat {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 40px;
+    height: 350px;
+    width: 350px;
+    border: 7px solid rgba(192, 192, 192, 1);
+}
+
+.thermostat__wrapper {
+    margin: 0;
+    height: 300px;
+    width: 300px;
+    padding: 20px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: gray;
+}
+
+.thermostat__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.thermostat__wrapper--cooling {
+    background: rgba(16, 92, 251, 1);
+}
+.thermostat__wrapper--heating {
+    background: rgba(223, 120, 41, 1);
+}
+
+.thermostat__subtitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.thermostat__title {
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.thermostat__img {
+    width: 100px;
+}

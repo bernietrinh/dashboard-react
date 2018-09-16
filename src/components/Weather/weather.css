@@ -1,0 +1,12 @@
+.weather {
+  
+}
+
+.weather__icon {
+  color: white;
+  font-size: 250px;
+}
+
+.weather__forecast.weather__forecast--upcoming .weather__icon {
+  font-size: 75px;
+}
