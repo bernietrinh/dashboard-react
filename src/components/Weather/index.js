@@ -13,7 +13,6 @@ const TORONTO_CITY_ID = 6167865
 class Weather extends Component {
 
   state = {
-    cityName: '',
     current: {
       temp: 0,
       low: 0,
@@ -31,14 +30,15 @@ class Weather extends Component {
   }
 
   render() {
-    const { cityName, current, upcoming } = this.state
-    console.log(this.state)
+    const { current, upcoming } = this.state
     return (
       <div className="weather">
-        <h1>{cityName}</h1>
-        <i className={`weather__icon wi ${current.icon}`}/>
         <div className="weather__forecast">
-          <span>{current.forecast}</span>
+        <span>TODAY</span>
+          <section>
+            <i className={`weather__icon wi ${current.icon}`}/>
+            <span>{current.forecast}</span>
+          </section>
           <span>{current.temp}</span>
           <span>{current.high}</span>
           <span>{current.low}</span>
@@ -48,8 +48,11 @@ class Weather extends Component {
             upcoming.map((day, i) => {
               return (
                 <div className="weather__forecast weather__forecast--upcoming" key={i}>
-                  <i className={`weather__icon wi ${day.icon}`}/>
-                  <span>{day.forecast}</span>
+                  <span>{_.upperCase(day.date.format('ddd'))}</span>
+                  <section>
+                    <i className={`weather__icon wi ${day.icon}`}/>
+                    <span>{day.forecast}</span>
+                  </section>
                   <span>{day.high}</span>
                   <span>{day.low}</span>
               </div>
@@ -71,7 +74,6 @@ class Weather extends Component {
     const weather = _.first(response.weather)
 
     this.setState({
-      cityName: name,
       current: {
         temp: _.round(temp),
         low: _.round(temp_min),
@@ -103,9 +105,12 @@ class Weather extends Component {
           low: _.round(low),
           high: _.round(high),
           forecast: _.startCase(weather.description),
-          date,
+          date: moment(date),
           icon: this._getForecastIconClass(weather.id, false)
         }
+      })
+      .filter(({ date }) => {
+        return !date.isSame(moment(), 'day')
       })
       .value()
     

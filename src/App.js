@@ -4,6 +4,7 @@ import './App.css';
 import React, { Component } from 'react'
 
 import CurrentDateTime from './components/CurrentDateTime'
+import SoldHomeRecords from './components/SoldHomeRecords/index'
 import Thermostat from './components/Thermostat'
 import Weather from './components/Weather'
 
@@ -13,8 +14,9 @@ class App extends Component {
     return (
       <div className="App">
         <CurrentDateTime />
-        <Thermostat />
         <Weather />
+        <Thermostat />
+        <SoldHomeRecords />
       </div>
     )
   }

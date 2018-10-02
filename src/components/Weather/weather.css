@@ -2,9 +2,25 @@
   
 }
 
-.weather__icon {
-  color: white;
+.weather__forecast {
+  display: flex;
+  align-items: center;
+  padding-bottom: 15px;
+}
+.weather__forecast span {
+  margin-right: 5px;
+  margin-left: 20px;
+}
+
+.weather__forecast section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather__forecast .weather__icon {
   font-size: 250px;
+  color: white;
 }
 
 .weather__forecast.weather__forecast--upcoming .weather__icon {
